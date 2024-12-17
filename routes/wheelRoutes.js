@@ -1,11 +1,8 @@
 // routes/wheelRoutes.js
 import express from 'express';
+import { getWheelItems, addWheelItem, deleteWheelItem } from '../controllers/wheelController.js';
+
 const router = express.Router();
-const {
-  getWheelItems,
-  addWheelItem,
-  deleteWheelItem,
-} = require('../controllers/wheelController');
 
 // GET all wheel items
 router.get('/', getWheelItems);
@@ -16,4 +13,4 @@ router.post('/', addWheelItem);
 // DELETE a wheel item by ID
 router.delete('/:id', deleteWheelItem);
 
-module.exports = router;
+export default router;

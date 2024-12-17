@@ -1,9 +1,9 @@
 // server.js
-import express from'express';
-import cors from'cors';
+import express from 'express';
+import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-import wheelRoutes from './routes/wheelRoutes';
+import wheelRoutes from './routes/wheelRoutes.js'; // Ensure the path is correct
 
 dotenv.config();
 

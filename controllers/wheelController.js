@@ -1,8 +1,8 @@
 // controllers/wheelController.js
-import WheelItem from '../models/WheelItem';
+import WheelItem from '../models/WheelItem.js';
 
 // Get all wheel items
-exports.getWheelItems = async (req, res) => {
+export const getWheelItems = async (req, res) => {
   try {
     const items = await WheelItem.find();
     res.json(items);
@@ -12,7 +12,7 @@ exports.getWheelItems = async (req, res) => {
 };
 
 // Add a new wheel item
-exports.addWheelItem = async (req, res) => {
+export const addWheelItem = async (req, res) => {
   try {
     const { option } = req.body;
     const newItem = new WheelItem({ option });
@@ -24,7 +24,7 @@ exports.addWheelItem = async (req, res) => {
 };
 
 // Delete a wheel item
-exports.deleteWheelItem = async (req, res) => {
+export const deleteWheelItem = async (req, res) => {
   try {
     const { id } = req.params;
     await WheelItem.findByIdAndDelete(id);

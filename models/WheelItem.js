@@ -1,5 +1,5 @@
 // models/WheelItem.js
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const wheelItemSchema = new mongoose.Schema({
   option: {
@@ -13,4 +13,6 @@ const wheelItemSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('WheelItem', wheelItemSchema);
+const WheelItem = mongoose.model('WheelItem', wheelItemSchema);
+
+export default WheelItem;
