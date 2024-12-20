@@ -1,4 +1,5 @@
 import WheelItem from '../models/WheelItem.js';
+import mongoose from 'mongoose';
 
 // Get all wheel items
 export const getWheelItems = async (req, res) => {
@@ -31,6 +32,9 @@ export const addWheelItem = async (req, res) => {
 export const deleteWheelItem = async (req, res) => {
   try {
     const { id } = req.params;
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ error: 'Invalid item ID' });
+    }
     const deletedItem = await WheelItem.findByIdAndDelete(id);
     if (!deletedItem) {
       return res.status(404).json({ error: 'Item not found' });
