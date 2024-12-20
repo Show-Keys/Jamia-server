@@ -11,6 +11,6 @@ router.get('/getWheelItem', getWheelItems);
 router.post('/postWheelItem', addWheelItem);
 
 // DELETE a wheel item by ID
-router.delete('/deleteWheelItem:id', deleteWheelItem);
+router.delete('/deleteWheelItem/:id', deleteWheelItem);
 
 export default router;
