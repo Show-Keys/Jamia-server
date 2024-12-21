@@ -1,7 +1,6 @@
-// controllers/userController.js
 import bcrypt from 'bcrypt';
 import UserModel from '../models/UserModel.js';
-// import AdminModel from '../models/AdminModel.js';
+
 
 // Insert User
 export const insertUser = async (req, res) => {
@@ -46,7 +45,7 @@ export const userLogin = async (req, res) => {
   }
 };
 
-//Admin Login
+// Admin Login
 export const adminLogin = async (req, res) => {
   try {
     const admin = await AdminModel.findOne({ email: req.body.email });
