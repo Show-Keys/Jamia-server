@@ -1,12 +1,37 @@
-import mongoose from 'mongoose';
+// Models/User.js
+import mongoose from "mongoose";
 
-const UserSchema = mongoose.Schema({
-  fullName: { type: String, required: true },
-  uname: { type: String, required: true },
-  pnumber: { type: String, required: true },
-  password: { type: String, required: true },
-  adminCode: { type: String, required: true }, // Added adminCode field
-});
+const userSchema = mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
+    phoneNumber: {
+      type: String, // String to handle numbers with leading zeros or country codes
+      required: true,
+    },
+    profileImage: {
+      type: String, // URL or file path to the profile image
+      default: "",  // Default value if no image is provided
+    },
+    isAdmin: { type: Boolean, default: false },
+    isVerified: { type: Boolean, default: false },
+  resetToken: String,
+  resetTokenExpiration: Date,
+  },
+  { timestamps: true }
+);
 
-const UserModel = mongoose.model('User', UserSchema, "User");
-export default UserModel;
+const userModel = mongoose.model("Users", userSchema);
+
+export default userModel;
