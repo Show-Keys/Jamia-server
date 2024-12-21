@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import wheelRoutes from './routes/wheelRoutes.js'; // Ensure the path is correct
 import userRoutes from './routes/userRoutes.js';
-
+import resultRoutes from './routes/resultRoutes.js';
 dotenv.config();
 
 const app = express();
@@ -22,7 +22,8 @@ mongoose.connect(process.env.MONGO_URI)
 
 // Routes
 app.use('/api/wheel', wheelRoutes);
-// app.use('/api/users', userRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/results', resultRoutes);
 // Start the Server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
