@@ -5,12 +5,12 @@ import { getWheelItems, addWheelItem, deleteWheelItem } from '../controllers/whe
 const router = express.Router();
 
 // GET all wheel items
-router.get('/', getWheelItems);
+router.get('/getWheelItems', getWheelItems);
 
 // POST a new wheel item
-router.post('/', addWheelItem);
+router.post('/addWheelItem', addWheelItem);
 
 // DELETE a wheel item by ID
-router.delete('/:id', deleteWheelItem);
+router.delete('/deleteWheelItem:id', deleteWheelItem);
 
 export default router;
