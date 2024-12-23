@@ -1,3 +1,4 @@
+
  import mongoose from 'mongoose';
 // const jamiyaSchema = new mongoose.Schema({
 //     jcode: { type: String, required: true },
