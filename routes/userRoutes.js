@@ -1,16 +1,21 @@
-// routes/userRoutes.js
 import express from 'express';
-import { insertUser, userLogin, adminLogin } from '../controllers/userController.js';
+import { registerUser, loginUser, adminLogin, fetchUsers, deleteUser } from '../controllers/userController.js';
 
 const router = express.Router();
 
-// Insert User Route
-router.post('/insertUser', insertUser);
+// Register User Route
+router.post('/register', registerUser);
 
 // User Login Route
-router.post('/userLogin', userLogin);
+router.post('/login', loginUser);
 
 // Admin Login Route
-router.post('/adminLogin', adminLogin);
+router.post('/admin/login', adminLogin);
+
+// Fetch Users Route
+router.get('/', fetchUsers);
+
+// Delete User Route
+router.delete('/:userId', deleteUser);
 
 export default router;
